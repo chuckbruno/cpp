@@ -1,2 +1,2 @@
 # cpp
-sf
+Cpp learning journery
