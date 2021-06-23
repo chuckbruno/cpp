@@ -22,5 +22,3 @@ int main()
     p2_fun (*pa)[10];
 
     return 0;
-
-}
