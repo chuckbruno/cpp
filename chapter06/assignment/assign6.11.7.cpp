@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cctype>
-
+#include <string>
 
 int main()
 {
@@ -12,8 +12,8 @@ int main()
     int others = 0;
     int voel = 0;
     int constant = 0;
-    memset(word, 0, sizeof(word));
-    std::cin  >> ch;
+    // memset(word, 0, sizeof(word));
+    std::cin.get(ch);
     while (ch != 'q')
     {
         if (ch != ' ' && ch != '\n')
@@ -23,6 +23,7 @@ int main()
         }
         else
         {
+            word[index + 1] = '\0';
             std::cout << word << std::endl;
             index = 0;
             if(isalpha(word[0]))
@@ -40,7 +41,7 @@ int main()
                 others += 1;
             }
 
-            memset(word, 0, sizeof(word));
+            // memset(word, 0, sizeof(word));
         }
 
         std::cin.get(ch);
