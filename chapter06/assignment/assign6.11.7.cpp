@@ -5,50 +5,64 @@
 int main()
 {
     std::cout << "Enter words (q to quit)" << std::endl;
-    const int Size = 50;
-    char ch;
-    char word[Size];
-    int index = 0;
     int others = 0;
-    int voel = 0;
-    int constant = 0;
+    int vowels = 0;
+    int consonants = 0;
+    std::string words;
     // memset(word, 0, sizeof(word));
-    std::cin.get(ch);
-    while (ch != 'q')
+    while(std::cin >> words, words.size() > 1 && words != "q")
     {
-        if (ch != ' ' && ch != '\n')
+        std::cout << words << std::endl;
+        if(isalpha(words[0]))
         {
-            word[index] = ch;
-            index += 1;
+            if (words[0] == 'a' || words[0]  == 'o' || words[0] == 'e'|| words[0] == 'i'|| words[0] == 'u')
+            {
+                vowels += 1;
+            }
+            else{
+                consonants += 1;
+            }
         }
         else
         {
-            word[index + 1] = '\0';
-            std::cout << word << std::endl;
-            index = 0;
-            if(isalpha(word[0]))
-            {
-                if (word[0] == 'a' | word[0]  == 'o' | word[0] == 'e'| word[0] == 'i'| word[0] == 'u')
-                {
-                    voel += 1;
-                }
-                else{
-                    constant += 1;
-                }
-            }
-            else
-            {
-                others += 1;
-            }
-
-            // memset(word, 0, sizeof(word));
-        }
-
-        std::cin.get(ch);
+            others += 1;
+        }    
     }
+    // while (strlen(word) > 1 && word[0] != 'q')
+    // {
+    //     if (ch != ' ' && ch != '\n')
+    //     {
+    //         word[index] = ch;
+    //         index += 1;
+    //     }
+    //     else
+    //     {
+    //         word[index] = '\0';
+    //         std::cout << word << std::endl;
+    //         index = 0;
+    //         if(isalpha(word[0]))
+    //         {
+    //             if (word[0] == 'a' || word[0]  == 'o' || word[0] == 'e'|| word[0] == 'i'|| word[0] == 'u')
+    //             {
+    //                 vowels += 1;
+    //             }
+    //             else{
+    //                 consonants += 1;
+    //             }
+    //         }
+    //         else
+    //         {
+    //             others += 1;
+    //         }
 
-    std::cout << voel << " words beginning with vowels" << std::endl;
-    std::cout << constant << " words beginngin with consonants" << std::endl;
+    //         // memset(word, 0, sizeof(word));
+    //     }
+    //     std::cin.get(ch);
+
+    // }
+
+    std::cout << vowels << " words beginning with vowels" << std::endl;
+    std::cout << consonants << " words begining with consonants" << std::endl;
 
     std::cout << others << " others" << std::endl;
 
