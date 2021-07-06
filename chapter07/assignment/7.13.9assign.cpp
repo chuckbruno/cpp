@@ -41,5 +41,5 @@ int main()
 
 int getinfo(student pa[], int n)
 {
-
+    
 }
