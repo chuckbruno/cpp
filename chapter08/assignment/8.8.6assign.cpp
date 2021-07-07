@@ -5,7 +5,7 @@
 template <typename T>
 T maxn(T arr[], int num);
 
-template<> const char* maxn<const char*>(const char* arr[], int num);
+template<>  const char* maxn< const char*>( const char* arr[], int num);
 
 
 int main()
@@ -16,7 +16,19 @@ int main()
     int maxInt = maxn(intArr, 6);
     double maxDouble = maxn(doubleArr, 4);
 
-    const char* charArr[5] = {"apple", "banana", "orange", "gape", "pear"};
+    char str1[6] = {'a', 'p', 'p', 'l', 'e'};
+    char str2[7] = {'b', 'a', 'n', 'a'};
+    // char str3[7] = {'o', 'r', 'a', 'n', 'g', 'e'};
+    // char str4[11] = {'o', 'r', 'a', 'n', 'g', 'e', 'g', 'e', 'h', 'i'};
+
+
+    // char * str2 = "banana";
+    // char * str3 = "orange";
+    // char * str4 = "gape";
+    // char * str5 = "pear";
+
+    const char* charArr[5] = {"apple", "banan", "orange", "gape", "pear"};
+    // char* charArr[4] = {str1, str2};
     const char* maxLength = maxn(charArr, 5);
 
     std::cout << "maxInt: " << maxInt << std::endl;
@@ -41,19 +53,16 @@ T maxn(T arr[], int num)
     return temp;
 }
 
-template<> const char* maxn<const char*>(const char* arr[], int num)
+template<>  const char* maxn< const char*>( const char* arr[], int num)
 {
-    char * charPtr = nullptr;
-    std::cout << "asdfa" << std::endl;
-    for(int i = 0; i < num; i++)
+    const char * ptr = arr[0];
+    for(int i = 0; i < num ; i++)
     {
-        std::cout << arr[i] << std::endl;
-        if (strlen(arr[i]) > strlen(charPtr))
+        if (strlen(arr[i]) > strlen(ptr))
         {
-            std::cout << arr[i] << std::endl;
-            charPtr = arr[i];
+            ptr = arr[i];
         }
     }
 
-    return charPtr;
+    return ptr;
 }
