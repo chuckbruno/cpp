@@ -43,8 +43,8 @@ int main()
 template <typename T>
 T maxn(T arr[], int num)
 {
-    T temp = 0;
-    for(int i = 0; i < num; i++)
+    T temp = arr[0];
+    for(int i = 1; i < num; i++)
     {
         if (arr[i] > temp)
             temp = arr[i];

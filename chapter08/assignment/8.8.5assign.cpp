@@ -23,8 +23,8 @@ int main()
 template <typename T>
 T max5(T arr[5])
 {
-    T temp = 0;
-    for (int i = 0; i < 5; i++)
+    T temp = arr[0];
+    for (int i = 1; i < 5; i++)
     {
         if (arr[i] > temp)
             temp = arr[i];
