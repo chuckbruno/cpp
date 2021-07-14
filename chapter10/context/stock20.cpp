@@ -79,7 +79,7 @@ void Stock::show() const
 {
     using std::cout;
     using std::ios_base;
-    ios_base::fmtflags_orig = cout.setf(ios_base::fixed, ios_base::floatfield);
+    ios_base::fmtflags orig = cout.setf(ios_base::fixed, ios_base::floatfield);
 
     std::streamsize prec = cout.precision(3);
 
