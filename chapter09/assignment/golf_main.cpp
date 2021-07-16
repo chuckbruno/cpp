@@ -24,7 +24,7 @@ int main()
 
     }
 
-    int golf_num = 5;
+    const int golf_num = 5;
     int rember = 0;
     golf golf_arr[golf_num];
     for (int i = 0; i < golf_num; i++)
