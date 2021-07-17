@@ -7,7 +7,7 @@ private:
     char name[20];
     int rate;
 public:
-    
+
 
 };
 
