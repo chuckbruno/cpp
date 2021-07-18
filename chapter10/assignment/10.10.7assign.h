@@ -4,10 +4,12 @@
 class Plorg
 {
 private:
-    char name[20];
-    int rate;
+    char m_name[20];
+    int m_rate;
 public:
-
+    Plorg(const char * nptr = "Plorga", int rate = 50);
+    void setRate(int rate);
+    void showPlorg() const;
 
 };
 
