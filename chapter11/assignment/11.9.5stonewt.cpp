@@ -5,6 +5,7 @@
 Stonewt::Stonewt(double lbs, Mode form)
 {
 
+    mode = form;
     stone = int(lbs) / Lbs_per_stn;
     pds_left = int(lbs) % Lbs_per_stn + lbs - int(lbs);
     pounds = lbs;
@@ -33,11 +34,13 @@ Stonewt::Stonewt(int stn, double lbs, Mode form)
     }
 }
 
+
 Stonewt::Stonewt()
 {
     stone = pounds = pds_left = 0;
     mode = Stonewt::STONE;
 }
+
 
 Stonewt::~Stonewt()
 {
@@ -46,24 +49,25 @@ Stonewt::~Stonewt()
 
 Stonewt Stonewt::operator+(const Stonewt & b) const
 {
-    return Stonewt(stone + b.stone, pounds + b.pounds);
+    return Stonewt((stone + b.stone) * Lbs_per_stn + (pounds + b.pounds), mode);
 
 }
 
 Stonewt Stonewt::operator-(const Stonewt & b) const
 {
-    return Stonewt(stone - b.stone, pounds - b.pounds);
+    return Stonewt((stone - b.stone) * Lbs_per_stn + (pounds - b.pounds), mode);
 }
 
 Stonewt Stonewt::operator*(double n) const
 {
-    return Stonewt(stone * n, pounds * n, Stonewt::STONE);
+    return Stonewt(stone * n * Lbs_per_stn + pounds * n, mode);
 }
 
 void Stonewt::show_stn() const
 {
     std::cout << stone << " stone " << pds_left << " pounds\n";
 }
+
 
 void Stonewt::show_lbs() const
 {
@@ -72,6 +76,7 @@ void Stonewt::show_lbs() const
 
 std::ostream& operator<<(std::ostream& os, const Stonewt& st)
 {
+    std::cout << st.mode << std::endl;
     if (st.mode == Stonewt::STONE)
     {
         os << st.stone << " stone " << st.pds_left << " pounds";
