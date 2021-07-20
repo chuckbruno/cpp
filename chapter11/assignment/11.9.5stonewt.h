@@ -6,15 +6,15 @@ class Stonewt
 {
     public:
         enum Mode {STONE, INTPOUND, FLTPOUND};
-    private:
+    public:
         Mode mode;
         enum {Lbs_per_stn = 14};
         int stone;
         double pds_left;
         double pounds;
     public:
-        Stonewt(double lbs, Mode mode);
-        Stonewt(int stn, double lbs, Mode mode);
+        Stonewt(double lbs, Mode mode = Stonewt::STONE);
+        Stonewt(int stn, double lbs, Mode mode = Stonewt::STONE);
         Stonewt();
         ~Stonewt();
 
