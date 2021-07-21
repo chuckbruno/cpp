@@ -1,23 +1,63 @@
-#include "11.9.5stonewt.h"
+#include "11.9.6stonewt.h"
 #include <iostream>
 
-void dispay(const Stonewt & st, int n);
 
 int main()
 {
-    Stonewt incognito(275, 10, Stonewt::STONE);
-    Stonewt wolfe(285, 23, Stonewt::STONE);
-    Stonewt taft(21, 2, Stonewt::STONE);
+    Stonewt incognito(23.63);
+    Stonewt wolfe(56.21);
+    Stonewt taft(89.56);
 
-    std::cout << incognito << std::endl;
-    std::cout << wolfe << std::endl;
-    std::cout << taft << std::endl;
+    Stonewt eleven(11);
 
-    Stonewt sum;
-    sum = incognito + wolfe + taft;
+    Stonewt stonewtArr[6];
+    stonewtArr[0] = incognito;
+    stonewtArr[1] = wolfe;
+    stonewtArr[2] = taft;
 
-    std::cout << sum << std::endl;
+    std::cout << "Enter pounds for the last three members: " << std::endl;
 
-    std::cout << incognito * 12 << std::endl;
+    for(int i = 3; i < 6; i++)
+    {
+        double inputPounds;
+        std::cout << "#" << i << " value: ";
+        std::cin >> inputPounds;
+        Stonewt tempEle = inputPounds;
+        stonewtArr[i] = tempEle;
+    }
+
+    Stonewt smallest = stonewtArr[0];
+    Stonewt largest = stonewtArr[0];
+
+    for(int i = 0; i < 6; i++)
+    {
+        if (stonewtArr[i] > largest)
+        {
+            largest = stonewtArr[i];
+        }
+
+        if(stonewtArr[i] < smallest)
+        {
+            smallest = stonewtArr[i];
+        }
+
+        std::cout << stonewtArr[i] << std::endl;
+    }
+
+    std::cout << "The largest is: " << largest << std::endl;
+    std::cout << "The smallest is: " << smallest << std::endl;
+
+    int count = 0;
+    for(int i = 0; i < 6; i++)
+    {
+        if (stonewtArr[i] >= eleven)
+        {
+            count += 1;
+        }
+    }
+
+    std::cout << "The number of all memebers larger than 11 pounds is: " << count << std::endl;
+
+    return 0;
 
 }
