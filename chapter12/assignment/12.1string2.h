@@ -1,5 +1,5 @@
-#ifndef STRING1_H_
-#define STRING1_H_
+#ifndef STRING2_H_
+#define STRING2_H_
 
 #include <iostream>
 
@@ -21,12 +21,18 @@ class String
 
         String & operator=(const String &);
         String & operator=(const char *);
+        String & operator+(const String &);
         char & operator[](int i);
         const char & operator[](int i) const;
+        void stringup();
+        void stringlow();
+
+        int has(char c) const;
 
         friend bool operator<(const String &st, const String &st2);
         friend bool operator>(const String &st1, const String &st2);
         friend bool operator==(const String &st, const String &st2);
+        friend String operator+(const char * s, const String &st2);
         friend std::ostream & operator<<(std::ostream & os, const String & st);
         friend std::istream & operator>>(std::istream & is, String & st);
 

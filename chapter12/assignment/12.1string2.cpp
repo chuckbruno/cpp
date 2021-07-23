@@ -1,5 +1,6 @@
 #include <cstring>
-#include "12.1string1.h"
+#include <cctype>
+#include "12.1string2.h"
 
 int String::num_strings = 0;
 
@@ -68,6 +69,63 @@ String & String::operator=(const char * s)
 }
 
 
+String & String::operator+(const String & st)
+{
+    char * tempPtr = new char[strlen(str) + 1];
+    strcpy(tempPtr, str);
+    int sum = strlen(str) + strlen(st.str) + 1;
+    str = new char[sum];
+    std::strcat(str, tempPtr);
+    std::strcat(str, st.str);
+
+    delete[] tempPtr;
+    return *this;
+}
+
+
+void String::stringup()
+{
+    char t;
+    int i = 0;
+    while (str[i])
+    {
+        t = str[i];
+        str[i] = toupper(t);
+        i++;
+    }
+}
+
+
+void String::stringlow()
+{
+    char t;
+    int i = 0;
+    while (str[i])
+    {
+        t = str[i];
+        str[i] = tolower(t);
+        i++;
+    }
+
+}
+
+
+int String::has(char c) const
+{
+    int i = 0;
+    int count = 0;
+    while(str[i])
+    {
+        if (str[i] == c)
+        {
+            count++;
+        }
+        i++;
+    }
+    return count;
+}
+
+
 char & String::operator[](int i)
 {
     return str[i];
@@ -94,6 +152,19 @@ bool operator==(const String &st1, const String & st2)
 {
     return (std::strcmp(st1.str, st2.str) == 0);
 }
+
+
+String operator+(const char * s, const String &st2)
+{
+    int sum = strlen(s) + strlen(st2.str) + 1;
+    char strArr[sum];
+    strArr[0] = '\0';
+    std::strcat(strArr, s);
+    std::strcat(strArr, st2.str);
+
+    return String(strArr);
+}
+
 
 std::ostream & operator<<(std::ostream &os, const String & st)
 {
