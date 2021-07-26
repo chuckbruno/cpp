@@ -23,7 +23,7 @@ int main()
     Bravo(c1);
     Bravo(c2);
 
-    cout << "Testing assignment: ";
+    cout << "Testing assignment: \n";
     Classic copy;
     copy = c2;
     copy.Report();
@@ -32,7 +32,7 @@ int main()
 }
 
 
-void Bravo(Cd & disk)
+void Bravo(const Cd & disk)
 {
     disk.Report();
 }
