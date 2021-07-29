@@ -33,6 +33,15 @@ int main()
     cout << vp3 << endl;
     ViewPort(vp3);
 
+    cout << "Pointer invoke function: " << endl;
+
+    Port * p_ptr;
+    p_ptr = &p1;
+    p_ptr->Show();
+
+    p_ptr = &vp1;
+    p_ptr->Show();
+
     return 0;
 
 }
