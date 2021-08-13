@@ -17,7 +17,6 @@ class Adder
 };
 
 
-
 int main()
 {
     double total = 0.0;
