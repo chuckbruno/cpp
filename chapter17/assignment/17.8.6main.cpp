@@ -9,13 +9,12 @@ int main()
     const char * fileName = "17.8.6data.dat";
 
     int i;
-
     int classtype;
-    for(i = 0; i < MAX; i++)
+
+    std::cout << "Enter e, m, f, h to create class, q to quit ";
+    char ch;
+    while(std::cin >> ch && ch != 'q' && indexs < MAX)
     {
-        std::cout << "Enter e, m, f, h to create class, q to quit ";
-        char ch;
-        std::cin >> ch;
         switch(ch)
         {
             case 'e':
@@ -36,12 +35,11 @@ int main()
                 pc[indexs] = new highfink;
                 pc[indexs]->SetAll();
                 break;
-            case 'q':
-                std::cout << "Bye!";
-                break;
 
         }
         indexs++;
+        std::cout << "Enter e, m, f, h to create class, q to quit ";
+
     }
 
     std::ofstream fout(fileName, std::ios_base::out|std::ios_base::app);
@@ -60,29 +58,32 @@ int main()
     std::cout << "Written data! " << std::endl;
 
     std::ifstream fin(fileName);
-    char ch;
     i = 0;
     if(fin.is_open())
     {
         while((fin >> classtype).get(ch))
-        switch(classtype)
         {
-            case Employee:
-                pc[i] = new employee;
-                break;
-            case Manager:
-                pc[i] = new manager;
-                break;
-            case Fink:
-                pc[i] = new fink;
-                break;
-            case HighFink:
-                pc[i] = new highfink;
-                break;
+            switch(classtype)
+            {
+                case Employee:
+                    pc[i] = new employee;
+                    break;
+                case Manager:
+                    pc[i] = new manager;
+                    break;
+                case Fink:
+                    pc[i] = new fink;
+                    break;
+                case HighFink:
+                    pc[i] = new highfink;
+                    break;
+            }
+
+            pc[i]->setall(fin);
+            pc[i]->ShowAll();
+
         }
 
-        pc[i]->setall(fin);
-        pc[i]->ShowAll();
     }    
 
     return 0;

@@ -124,8 +124,8 @@ manager::manager(const manager & m)
 
 void manager::ShowAll() const
 {
-    std::cout << "inchargeof: " << inchargeof << std::endl;
     abstr_emp::ShowAll();
+    std::cout << "inchargeof: " << inchargeof << std::endl;
 }
 
 
@@ -140,8 +140,8 @@ void manager::SetAll()
 
 void manager::setall(std::ifstream & is)
 {
-    is >> inchargeof;
     abstr_emp::setall(is);
+    is >> inchargeof;
 }
 
 
@@ -181,23 +181,23 @@ fink::fink(const fink & e)
 
 void fink::ShowAll() const
 {
-    std::cout << "reportsto: " << reportsto << std::endl;
     abstr_emp::ShowAll();
+    std::cout << "reportsto: " << reportsto << std::endl;
 }
 
 
 void fink::SetAll()
 {
+    abstr_emp::SetAll();
     std::cout << "Enter reportsto: ";
     getline(std::cin, reportsto);
-    abstr_emp::SetAll();
 }
 
 
 void fink::setall(std::ifstream & is)
 {
-    is >> reportsto;
     abstr_emp::setall(is);
+    is >> reportsto;
 }
 
 
