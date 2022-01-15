@@ -13,7 +13,6 @@ typedef customer Item;
 class Stack
 {
     private:
-        static double totalPayment;
         enum {MAX = 10};
         Item items[MAX];
         int top;

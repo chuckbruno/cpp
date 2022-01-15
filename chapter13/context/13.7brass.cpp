@@ -113,7 +113,7 @@ void BrassPlus::Withdraw(double amt)
 }
 
 
-format setFormat()
+format setFormat() 
 {
     return cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
 }

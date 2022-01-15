@@ -16,7 +16,7 @@ class beta
                 hold(V v = 0): val(v){}
                 void show() const { cout << val << endl; }
                 V Value() const { return val;  }
-
+ 
         };
 
         hold<T> q;

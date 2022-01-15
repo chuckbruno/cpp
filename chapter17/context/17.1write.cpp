@@ -32,4 +32,5 @@ int main()
     long val = 560031841;
     cout.write((char *) &val, sizeof(long));
     return 0;
+    
 }
