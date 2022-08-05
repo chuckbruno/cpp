@@ -17,7 +17,7 @@ class Derive: public Base
 {
     public:
         int b = 3;
-        virtual void print(int n = 10)
+        virtual void print(int n = 10) override
         {
             printf("Derive: %d\n", b + n);
         };
